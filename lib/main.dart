@@ -14,18 +14,47 @@ class MyApp extends StatelessWidget {
       title: 'E-Commerce App',
       theme: AppThemes.lightTheme,
       darkTheme: AppThemes.darkTheme,
-      themeMode: ThemeMode.system, // Auto-switch based on system
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Theme Test'),
-        ),
-        body: Center(
-          child: Card(
-            child: Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text('Themes are working!'),
+      themeMode: ThemeMode.system,
+      debugShowCheckedModeBanner: false,
+      home: const HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Welcome to Retail Commerce'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(
+              Icons.shopping_cart,
+              size: 80,
+              color: Colors.green,
             ),
-          ),
+            const SizedBox(height: 20),
+            Text(
+              'Retail Commerce App',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'Building in progress...',
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Get Started'),
+            ),
+          ],
         ),
       ),
     );
