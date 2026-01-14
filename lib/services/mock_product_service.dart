@@ -1,0 +1,157 @@
+import '../models/product_model.dart';
+
+class MockProductService {
+  static List<Product> getFeaturedProducts() {
+    return [
+      Product(
+        id: '1',
+        name: 'Apple iPhone 15 Pro',
+        description: 'Latest iPhone with A17 Pro chip, titanium design, and advanced camera system',
+        price: 999.99,
+        originalPrice: 1099.99,
+        imageUrl: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?q=80&w=2070',
+        rating: 4.8,
+        reviewCount: 324,
+        category: 'Electronics',
+        tags: ['Smartphone', 'Apple', '5G', 'Camera'],
+        isFeatured: true,
+        isPopular: true,
+        stock: 50,
+        colors: ['Space Black', 'White', 'Natural Titanium', 'Blue'],
+        sizes: ['128GB', '256GB', '512GB', '1TB'],
+      ),
+      Product(
+        id: '2',
+        name: 'Sony WH-1000XM5',
+        description: 'Industry-leading noise cancellation wireless headphones',
+        price: 349.99,
+        originalPrice: 399.99,
+        imageUrl: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=2070',
+        rating: 4.7,
+        reviewCount: 189,
+        category: 'Electronics',
+        tags: ['Headphones', 'Wireless', 'Noise Cancelling'],
+        isFeatured: true,
+        isPopular: true,
+        stock: 75,
+        colors: ['Black', 'Silver', 'Blue'],
+        sizes: ['One Size'],
+      ),
+      Product(
+        id: '3',
+        name: 'Nike Air Max 270',
+        description: 'Comfortable lifestyle shoes with Max Air cushioning',
+        price: 129.99,
+        imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070',
+        rating: 4.5,
+        reviewCount: 456,
+        category: 'Fashion',
+        tags: ['Shoes', 'Sportswear', 'Nike'],
+        isFeatured: true,
+        stock: 100,
+        colors: ['Black', 'White', 'Red', 'Blue'],
+        sizes: ['7', '8', '9', '10', '11', '12'],
+      ),
+      Product(
+        id: '4',
+        name: 'Amazon Echo Dot (5th Gen)',
+        description: 'Smart speaker with Alexa, improved audio quality',
+        price: 49.99,
+        originalPrice: 59.99,
+        imageUrl: 'https://images.unsplash.com/photo-1589003077984-894e133dabab?q=80&w=2070',
+        rating: 4.3,
+        reviewCount: 234,
+        category: 'Electronics',
+        tags: ['Smart Home', 'Speaker', 'Alexa'],
+        isFeatured: true,
+        stock: 200,
+        colors: ['Charcoal', 'Glacier White', 'Deep Sea Blue'],
+        sizes: ['One Size'],
+      ),
+    ];
+  }
+
+  static List<Product> getPopularProducts() {
+    return [
+      Product(
+        id: '5',
+        name: 'MacBook Pro 16"',
+        description: 'Powerful laptop with M3 Pro chip for professionals',
+        price: 2499.99,
+        imageUrl: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=2072',
+        rating: 4.9,
+        reviewCount: 128,
+        category: 'Electronics',
+        tags: ['Laptop', 'Apple', 'Professional'],
+        isPopular: true,
+        stock: 30,
+        colors: ['Space Gray', 'Silver'],
+        sizes: ['16GB/512GB', '32GB/1TB', '64GB/2TB'],
+      ),
+      Product(
+        id: '6',
+        name: 'Samsung 55" 4K QLED TV',
+        description: 'Crystal clear 4K display with Quantum Dot technology',
+        price: 799.99,
+        originalPrice: 999.99,
+        imageUrl: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?q=80&w=2070',
+        rating: 4.6,
+        reviewCount: 312,
+        category: 'Electronics',
+        tags: ['TV', '4K', 'Smart TV'],
+        isPopular: true,
+        stock: 45,
+        colors: ['Black'],
+        sizes: ['55"'],
+      ),
+      Product(
+        id: '7',
+        name: 'Dyson V15 Detect',
+        description: 'Cordless vacuum with laser dust detection',
+        price: 699.99,
+        imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070',
+        rating: 4.7,
+        reviewCount: 189,
+        category: 'Home',
+        tags: ['Vacuum', 'Cordless', 'Home Appliance'],
+        isPopular: true,
+        stock: 60,
+        colors: ['Yellow/Nickel', 'Blue/Iron'],
+        sizes: ['One Size'],
+      ),
+      Product(
+        id: '8',
+        name: 'Levi\'s 501 Original Jeans',
+        description: 'Classic straight fit jeans, 100% cotton',
+        price: 89.99,
+        originalPrice: 99.99,
+        imageUrl: 'https://images.unsplash.com/photo-1542272604-787c3835535d?q=80&w=2026',
+        rating: 4.4,
+        reviewCount: 567,
+        category: 'Fashion',
+        tags: ['Jeans', 'Denim', 'Levi\'s'],
+        isPopular: true,
+        stock: 150,
+        colors: ['Blue', 'Black', 'Light Blue'],
+        sizes: ['28', '30', '32', '34', '36', '38'],
+      ),
+    ];
+  }
+
+  static List<String> getCategories() {
+    return [
+      'All',
+      'Electronics',
+      'Fashion',
+      'Home & Kitchen',
+      'Beauty',
+      'Sports',
+      'Books',
+      'Toys',
+    ];
+  }
+
+  static List<Product> getAllProducts() {
+    return [...getFeaturedProducts(), ...getPopularProducts()];
+  }
+}

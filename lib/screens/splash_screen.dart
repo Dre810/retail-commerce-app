@@ -48,7 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             const SizedBox(height: 30),
             // App name
-            Text(
+            const Text(
               'Retail Commerce',
               style: TextStyle(
                 fontSize: 32,
