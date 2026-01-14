@@ -26,3 +26,13 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  
+  # REMOVE ALL font references - we're using google_fonts package instead
+  # fonts:
+  #   - family: Poppins
+  #     fonts:
+  #       - asset: fonts/Poppins-Regular.ttf
+  #       - asset: fonts/Poppins-Bold.ttf
+  #         weight: 700
+  #       - asset: fonts/Poppins-SemiBold.ttf
+  #         weight: 600
