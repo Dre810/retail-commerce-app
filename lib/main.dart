@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'providers/cart_provider.dart';
 import 'providers/auth_provider.dart';
 import 'screens/splash_screen.dart';
+import 'screens/auth/login_screen.dart';
+import 'screens/auth/register_screen.dart';
+import 'screens/home/home_screen.dart';
 
 void main() {
-  // Simple main without Firebase first
-  runApp(const DebugApp());
+  runApp(const MyApp());
 }
 
-class DebugApp extends StatelessWidget {
-  const DebugApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class DebugApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => CartProvider()),
       ],
       child: MaterialApp(
-        title: 'Retail Commerce - Debug',
+        title: 'Retail Commerce',
         theme: ThemeData(
           primarySwatch: Colors.green,
           scaffoldBackgroundColor: Colors.white,
@@ -36,61 +37,62 @@ class DebugApp extends StatelessWidget {
               fontSize: 20,
               fontWeight: FontWeight.w600,
             ),
+            iconTheme: const IconThemeData(color: Colors.black),
           ),
+          textTheme: GoogleFonts.poppinsTextTheme(),
+          cardTheme: CardThemeData(
+            elevation: 4,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            margin: const EdgeInsets.all(8),
+          ),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.green,
+              foregroundColor: Colors.white,
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              elevation: 2,
+            ),
+          ),
+          floatingActionButtonTheme: const FloatingActionButtonThemeData(
+            backgroundColor: Colors.green,
+            foregroundColor: Colors.white,
+          ),
+          useMaterial3: true,
         ),
-        debugShowCheckedModeBanner: true,
-        home: const DebugHomeScreen(),
-      ),
-    );
-  }
-}
-
-class DebugHomeScreen extends StatelessWidget {
-  const DebugHomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Debug Mode')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(Icons.check_circle, size: 60, color: Colors.green),
-            const SizedBox(height: 20),
-            const Text(
-              'App is Running!',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        darkTheme: ThemeData(
+          primarySwatch: Colors.green,
+          brightness: Brightness.dark,
+          scaffoldBackgroundColor: const Color(0xFF121212),
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Color(0xFF1E1E1E),
+            elevation: 0,
+            centerTitle: true,
+          ),
+          cardTheme: CardThemeData(
+            color: const Color(0xFF1E1E1E),
+            elevation: 4,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
             ),
-            const SizedBox(height: 10),
-            Text(
-              'Firebase is temporarily disabled',
-              style: TextStyle(color: Colors.grey[600]),
-            ),
-            const SizedBox(height: 30),
-            ElevatedButton(
-              onPressed: () {
-                // Test navigation
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SplashScreen()),
-                );
-              },
-              child: const Text('Test Splash Screen'),
-            ),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () {
-                // Test providers
-                final auth = context.read<AuthProvider>();
-                final cart = context.read<CartProvider>();
-                print('Auth: ${auth.isLoggedIn}');
-                print('Cart items: ${cart.itemCount}');
-              },
-              child: const Text('Test Providers'),
-            ),
-          ],
+            margin: const EdgeInsets.all(8),
+          ),
+          useMaterial3: true,
         ),
+        themeMode: ThemeMode.light,
+        debugShowCheckedModeBanner: true, // Keep this true for debugging
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const SplashScreen(),
+          '/login': (context) => const LoginScreen(),
+          '/register': (context) => const RegisterScreen(),
+          '/auth_check': (context) => const LoginScreen(),
+          '/home': (context) => const HomeScreen(),
+        },
       ),
     );
   }
