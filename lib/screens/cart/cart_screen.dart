@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:retail_commerce_app/models/cart_item.dart';
 import '../../providers/cart_provider.dart';
 
 class CartScreen extends StatelessWidget {
@@ -201,7 +202,7 @@ class CartScreen extends StatelessWidget {
                           color: Colors.green[100],
                           borderRadius: BorderRadius.circular(6),
                         ),
-                        child: Icon(Icons.add, size: 16, color: Colors.green),
+                        child: const Icon(Icons.add, size: 16, color: Colors.green),
                       ),
                       onPressed: () {
                         cartProvider.increaseQuantity(item.product.id);
@@ -230,17 +231,19 @@ class CartScreen extends StatelessWidget {
   Widget _buildCheckoutBottomBar(BuildContext context, CartProvider cartProvider) {
     return Container(
       padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.top: BorderSide(color: Colors.grey[200]!),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            offset: const Offset(0, -5),
-          ),
-        ],
-      ),
+     decoration: BoxDecoration(
+  color: Colors.white,
+  border: Border(
+    top: BorderSide(color: Colors.grey[200]!),
+  ),
+  boxShadow: [
+    BoxShadow(
+      color: Colors.black.withOpacity(0.1),
+      blurRadius: 10,
+      offset: const Offset(0, -5),
+    ),
+  ],
+),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

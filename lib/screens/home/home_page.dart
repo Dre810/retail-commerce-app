@@ -854,7 +854,7 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(height: 6),
                 Row(
                   children: [
-                    Icon(Icons.star, size: 14, color: Colors.amber),
+                    const Icon(Icons.star, size: 14, color: Colors.amber),
                     const SizedBox(width: 4),
                     Text(
                       product.rating.toStringAsFixed(1),

@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
             iconTheme: const IconThemeData(color: Colors.black),
           ),
           textTheme: GoogleFonts.poppinsTextTheme(),
-          cardTheme: CardTheme(
+          cardTheme: CardThemeData(
             elevation: 4,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
             elevation: 0,
             centerTitle: true,
           ),
-          cardTheme: CardTheme(
+          cardTheme: CardThemeData(
             color: const Color(0xFF1E1E1E),
             elevation: 4,
             shape: RoundedRectangleBorder(
